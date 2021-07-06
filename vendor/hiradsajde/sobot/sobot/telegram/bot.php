@@ -103,6 +103,7 @@ class bot
             $this->callback_id = $update->callback_query->id;
             if (isset($update->callback_query->from)) {
                 $this->chat_id = $update->callback_query->from->id;
+                $this->from_id = $update->callback_query->from->id;
                 $this->is_bot = $update->callback_query->from->is_bot;
                 $this->first_name = $update->callback_query->from->first_name;
                 $this->last_name = $this->is_bot = $update->callback_query->from->last_name;
@@ -210,4 +211,7 @@ class bot
         }
         return false;
     }
+    public function T_num($text){
+        return str_replace([1,2,3,4,5,6,7,8,9,0] , ['1️⃣' , '2️⃣' , '3️⃣' , '4️⃣' , '5️⃣' , '6️⃣' , '7️⃣' , '8️⃣' , '9️⃣' , '0️⃣'] , $text);
+    } 
 }
